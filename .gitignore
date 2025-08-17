@@ -146,7 +146,6 @@ Thumbs.db
 
 # Application specific - CRITICAL: Prevent sensitive config files
 application.properties
-application-*.properties
 application-local.properties
 application-dev.properties
 application-test.properties
