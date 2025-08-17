@@ -32,9 +32,9 @@ const RegisterForm: React.FC = () => {
 
     try {
       await authAPI.register(formData);
-      setSuccess('Registration successful! Please login to continue.');
+      setSuccess('Registration successful! Redirecting to homepage...');
       setTimeout(() => {
-        navigate('/login');
+        navigate('/');
       }, 2000);
     } catch (err: any) {
       setError(err.response?.data || 'Registration failed. Please try again.');

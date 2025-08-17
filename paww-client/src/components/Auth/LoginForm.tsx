@@ -30,7 +30,7 @@ const LoginForm: React.FC = () => {
     try {
       const response = await authAPI.login(formData);
       login(response.token, response.userId);
-      navigate('/dashboard');
+      navigate('/');
     } catch (err: any) {
       setError(err.response?.data || 'Login failed. Please try again.');
     } finally {

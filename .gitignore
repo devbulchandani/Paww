@@ -149,7 +149,6 @@ application.properties
 application-*.properties
 application-local.properties
 application-dev.properties
-application-prod.properties
 application-test.properties
 
 # Cloudinary config (if stored locally)
