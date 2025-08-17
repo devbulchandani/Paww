@@ -144,16 +144,36 @@ logs
 ehthumbs.db
 Thumbs.db
 
-# Application specific
+# Application specific - CRITICAL: Prevent sensitive config files
+application.properties
+application-*.properties
 application-local.properties
 application-dev.properties
 application-prod.properties
+application-test.properties
 
 # Cloudinary config (if stored locally)
 cloudinary.properties
 
 # WhatsApp API keys
 whatsapp-config.properties
+
+# Spring Boot configuration files with sensitive data
+application.yml
+application-*.yml
+bootstrap.properties
+bootstrap-*.properties
+bootstrap.yml
+bootstrap-*.yml
+
+# Database connection files
+database.properties
+db.properties
+
+# JWT and security keys
+jwt.properties
+security.properties
+secrets.properties
 
 # Temporary files
 *.tmp

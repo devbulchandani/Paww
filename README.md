@@ -59,21 +59,26 @@ Paww is a comprehensive platform that connects stray dogs with loving homes thro
    ```
 
 3. **Configure Application Properties**
-   Create `application-local.properties` in `src/main/resources/`:
+   Copy the template and configure your settings:
+   ```bash
+   cd paww/src/main/resources/
+   cp application.properties.template application.properties
+   ```
+   
+   Then edit `application.properties` with your actual values:
    ```properties
    # Database Configuration
    spring.datasource.url=jdbc:postgresql://localhost:5432/paww
    spring.datasource.username=your_username
    spring.datasource.password=your_password
    
-   # Cloudinary Configuration
+   # Cloudinary Configuration (Get from https://cloudinary.com)
    cloudinary.cloud-name=your_cloud_name
    cloudinary.api-key=your_api_key
    cloudinary.api-secret=your_api_secret
-   
-   # CORS Configuration
-   cors.allowed-origins=http://localhost:5173,http://localhost:5174
    ```
+   
+   ⚠️ **Important**: Never commit `application.properties` to git as it contains sensitive information!
 
 4. **Run the Backend**
    ```bash
@@ -171,6 +176,34 @@ paww/
 │   └── public/                   # Static Assets
 └── .kiro/                        # Kiro IDE Specifications
     └── specs/paww-mvp/           # Project Requirements & Design
+```
+
+## 🔒 Security
+
+### Configuration Security
+- **Never commit** `application.properties` or any files containing sensitive data
+- Use `application.properties.template` as a reference for required configuration
+- Store sensitive values in environment variables for production
+- Use different configuration files for different environments
+
+### Environment Variables (Recommended for Production)
+```bash
+export DB_URL=jdbc:postgresql://localhost:5432/paww
+export DB_USERNAME=your_username
+export DB_PASSWORD=your_password
+export CLOUDINARY_CLOUD_NAME=your_cloud_name
+export CLOUDINARY_API_KEY=your_api_key
+export CLOUDINARY_API_SECRET=your_api_secret
+```
+
+Then reference them in your application.properties:
+```properties
+spring.datasource.url=${DB_URL}
+spring.datasource.username=${DB_USERNAME}
+spring.datasource.password=${DB_PASSWORD}
+cloudinary.cloud-name=${CLOUDINARY_CLOUD_NAME}
+cloudinary.api-key=${CLOUDINARY_API_KEY}
+cloudinary.api-secret=${CLOUDINARY_API_SECRET}
 ```
 
 ## 🧪 Testing
