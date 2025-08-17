@@ -6,7 +6,6 @@ import type {
   DogSearchParams,
   LoginForm,
   RegisterForm,
-  User,
 } from "../types";
 
 const API_BASE_URL =
